@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/login_up"
+        android:title="Sign In/up"
+        />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/register"
+            android:title="Register" />
+        <item
+            android:id="@+id/look_for_Trainer"
+            android:title="Look for Trainer" />
+        <item
+            android:id="@+id/club_news"
+            android:title="Club news" />
+        <item
+            android:id="@+id/activity"
+            android:title="Activity"
+            />
+    </group>
+
+</menu>

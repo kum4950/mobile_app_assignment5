@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="primary">#e6295f</color>
+    <color name="primary_dark">#d61b50</color>
+    <color name="red">#f15050</color>
+    <color name="red_dark">#d43c3c</color>
+    <color name="yellow">#eed45a</color>
+    <color name="yellow_dark">#d4bb46</color>
+    <color name="lime">#bce24a</color>
+    <color name="lime_dark">#9dbf35</color>
+    <color name="green">#48d26b</color>
+    <color name="green_dark">#36b957</color>
+    <color name="blue">#48dfe1</color>
+    <color name="blue_dark">#37c4c6</color>
+    <color name="dark_blue">#5a9cee</color>
+    <color name="dark_blue_dark">#417eca</color>
+    <color name="dark_violet">#7e50f1</color>
+    <color name="dark_violet_dark">#683dd4</color>
+    <color name="violet">#d65aee</color>
+    <color name="violet_dark">#b33ec9</color>
+    <color name="white">#ffffffff</color>
+
+    <color name="colorPrimary_login">#7e50f1</color>
+    <color name="colorPrimaryDark_login">#683dd4</color>
+    <color name="colorAccent_login">#FF4081</color>
+    <color name="facebookBlue">#3F5996</color>
+    <color name="twitterBlue">#29C5F6</color>
+    <color name="googleRed">#D03E2F</color>
+    <color name="transparent">#00000000</color>
+    <color name="editTextBG">#DADADA</color>
+    <color name="textColor">#6e6e6e</color>
+
+    <color name="colorPrimary_register">#f15050</color>
+    <color name="colorPrimaryDark_register">#d43c3c</color>
+    <color name="colorAccent_register">#f15050</color>
+
+    <color name="colorPrimary_home">#49BEFF</color>
+    <color name="colorPrimaryDark_home">#65DCE5</color>
+    <color name="colorAccent_home">#0D5D98</color>
+    <color name="address">#2F7092</color>
+    <color name="followers">#0D5D98</color>
+    <color name="headings">#3797CF</color>
+    <color name="solidCircle">#AAFFFFFF</color>
+    <color name="circleBorder">#50FFFFFF</color>
+    <color name="gradEnd">#67EFC8</color>
+    <color name="gradStart">#63C9FF</color>
+    <color name="followersBg">#65DCE5</color>
+    <color name="followingBg">#49BEFF</color>
+    <color name="grey">#E5E5E5</color>
+
+</resources>
