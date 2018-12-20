@@ -1,7 +1,8 @@
 package com.bjtu2018kumseungwon.gymclub;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class Activity_Chat extends AppCompatActivity {
 
