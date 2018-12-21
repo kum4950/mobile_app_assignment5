@@ -189,6 +189,9 @@ public class Activity_Main extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(Activity_Main.this, Activity_Setting.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
             return true;
         }
 
@@ -202,17 +205,37 @@ public class Activity_Main extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.login_up) {
-            // Handle the camera action
+            Intent intent = new Intent(Activity_Main.this, Activity_Login.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         } else if (id == R.id.home) {
-
+            Intent intent = new Intent(Activity_Main.this, Activity_Home.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         } else if (id == R.id.register) {
-
+            Intent intent = new Intent(Activity_Main.this, Activity_Register.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         } else if (id == R.id.look_for_Trainer) {
-
+            Intent intent = new Intent(Activity_Main.this, Activity_Looking.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         } else if (id == R.id.club_news) {
-
+            Intent intent = new Intent(Activity_Main.this, Activity_News.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         } else if (id == R.id.activity) {
-
+            Intent intent = new Intent(Activity_Main.this, Activity_Activity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        }else if (id == R.id.logout) {
+            Intent intent = new Intent(Activity_Main.this, Activity_Logout.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        }else if (id == R.id.chat) {
+            Intent intent = new Intent(Activity_Main.this, Activity_Chat.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
