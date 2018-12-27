@@ -34,6 +34,16 @@ public class Activity_Register extends AppCompatActivity {
 
 
         Button registerButton = findViewById(R.id.registerButton);
+        Button loginButton = findViewById(R.id.loginButton);
+
+        loginButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent loginIntent = new Intent(Activity_Register.this, Activity_Login.class);
+                Activity_Register.this.startActivity(loginIntent);
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,12 +51,13 @@ public class Activity_Register extends AppCompatActivity {
                 String userName = nameText.getText().toString();
                 String userPassword = passwordText.getText().toString();
                 String userEmail = emailText.getText().toString();
+                //username validation
                 if(!userName.matches("^[a-zA-Z0-9]*$"))
                 {
-                    Toast.makeText(Activity_Register.this,"\n" +"Please write your name in English only.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Register.this,"\n" +"Please write your name in English and number only.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                //비밀번호 유효성
+                //password validation
                 if(!userPassword.matches(getString(R.string.pw_validation)))
                 {
                     Toast.makeText(Activity_Register.this,"\n" +
@@ -55,6 +66,7 @@ public class Activity_Register extends AppCompatActivity {
                             "English is case-sensitive.",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //userEmail validation
                 if(!userEmail.matches("^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$"))
                 {
                     Toast.makeText(Activity_Register.this,"\n" +

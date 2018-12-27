@@ -45,13 +45,13 @@ public class Activity_Login extends AppCompatActivity {
             public void onClick(View v) {
                 final String userName = usernameText.getText().toString();
                 final String userPassword = passwordText.getText().toString();
-                //user name 유효성
+                //user name validation
                 if(!userName.matches("^[a-zA-Z]*$"))
                 {
-                    Toast.makeText(Activity_Login.this,"Please write your name in English only.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Login.this,"Please write your name in English and number only.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-               //비밀번호 유효성
+               //password validation
                 if(!userPassword.matches(getString(R.string.pw_validation)))
                 {
                     Toast.makeText(Activity_Login.this,"\n" +
