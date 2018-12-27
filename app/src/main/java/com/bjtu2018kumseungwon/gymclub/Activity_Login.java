@@ -46,7 +46,7 @@ public class Activity_Login extends AppCompatActivity {
                 final String userName = usernameText.getText().toString();
                 final String userPassword = passwordText.getText().toString();
                 //user name validation
-                if(!userName.matches("^[a-zA-Z]*$"))
+                if(!userName.matches("^[a-zA-Z0-9]*$"))
                 {
                     Toast.makeText(Activity_Login.this,"Please write your name in English and number only.",Toast.LENGTH_SHORT).show();
                     return;
