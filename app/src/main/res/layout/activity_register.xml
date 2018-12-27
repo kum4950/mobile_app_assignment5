@@ -80,6 +80,7 @@
                     android:tint="@color/white" />
 
                 <EditText
+                    android:id="@+id/userName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/imgView_userIcon"
@@ -110,6 +111,7 @@
                     android:tint="@color/white" />
 
                 <EditText
+                    android:id="@+id/userPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/imgView_passwordIcon"
@@ -141,6 +143,7 @@
                     android:tint="@color/white" />
 
                 <EditText
+                    android:id="@+id/userPassword2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/imgView_repasswordIcon"
@@ -172,6 +175,7 @@
                     android:tint="@color/white" />
 
                 <EditText
+                    android:id="@+id/userEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/imgView_emailIcon"
@@ -196,7 +200,7 @@
                 android:textColor="@color/textColor" />
 
             <Button
-                android:id="@+id/btn_signUp"
+                android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/chkBox1"
@@ -211,7 +215,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btn_signUp"
+                android:layout_below="@+id/registerButton"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"

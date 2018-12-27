@@ -84,4 +84,12 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="follow">follow</string>
+    <string name="Title">Title</string>
+    <string name="TextView">TextView</string>
+    <string name="card_background">card_background</string>
+    <string name="profile_img">profile_img</string>
+    <string name="chat1">chat1</string>
+    <string name="chat2">chat2</string>
+    <string name="pw_validation"><![CDATA[([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])]]></string>
 </resources>

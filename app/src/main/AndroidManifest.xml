@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bjtu2018kumseungwon.gymclub">
 
+    <uses-permission android:name="android.permission.INTERNET" > </uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -49,10 +51,12 @@
             android:theme="@style/ThemeLogout" />
         <activity
             android:name=".Activity_Home"
-            android:theme="@style/ThemeHome"></activity>
+            android:theme="@style/ThemeHome" />
         <activity
             android:name=".Activity_Setting"
-            android:label="@string/title_activity__setting"></activity>
+            android:label="@string/title_activity__setting" />
+        <activity android:name=".Activity_Management" />
+        <activity android:name=".Activity_Output"></activity>
     </application>
 
 </manifest>
