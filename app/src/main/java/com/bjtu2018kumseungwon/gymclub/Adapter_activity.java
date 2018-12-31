@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -60,12 +61,58 @@ public class Adapter_activity extends RecyclerView.Adapter<Adapter_activity.myVi
             @Override
             public void onClick(View v) {
 
-                // INTENT// url
-                Intent videoIntent = new Intent(mContext, Activity_Video.class);
-                videoIntent.putExtra("videoURL", URL);
-                mContext.startActivity(videoIntent);
                 mData.get(position).setNbViews(mData.get(position).getNbViews()+1);
                 holder.tv_nbViews.setText((mData.get(position).getNbViews() + " Views"));
+
+                Response.Listener<String> responseListener = new Response.Listener<String>(){
+
+                    @Override
+                    public void onResponse(String response) {
+                        try{
+                            //서버로부터 받는 데이터는 JSON타입의 객체이다.
+                            JSONObject jsonResponse = new JSONObject(response);
+                            //그중 key 값이 "success" 인것을 가져온다.
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            //회원 가입 성공시 success 값이 true 임
+                            if(success){
+                                Toast.makeText(mContext.getApplicationContext(),"success",Toast.LENGTH_SHORT).show();
+
+                                //알림상자를 만들어서 보여줌
+                                android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(mContext);
+                                builder.setMessage("update views success!!")
+                                        .setPositiveButton("ok",null)
+                                        .create()
+                                        .show();
+
+                                //call INTENT// url
+                                Intent videoIntent = new Intent(mContext, Activity_Video.class);
+                                videoIntent.putExtra("videoURL", URL);
+                                mContext.startActivity(videoIntent);
+                            }
+                            //회원 가입 실패시 success 값이 false 임
+                            else{
+                                Toast.makeText(mContext.getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
+                                //알림상자를 만들어서 보여줌
+                                android.support.v7.app.AlertDialog.Builder builder= new android.support.v7.app.AlertDialog.Builder(mContext);
+                                builder.setMessage("update views fail!!")
+                                        .setNegativeButton("ok",null)
+                                        .create()
+                                        .show();
+                            }
+                        }catch(JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                };//responseLister 끝
+
+                //volley 사용법
+                //1.RequestObject 를 생성한다. 이때 서버로부터 데이터를 받을 responseListener를 반드시 넘겨준다.
+                ActivityRequest activityRequest = new ActivityRequest(mData.get(position).getClass_Name(), mData.get(position).getNbViews(),responseListener);
+                //2.RequestQueue를 생성한다.
+                RequestQueue queue = Volley.newRequestQueue(mContext);
+                //3.RequestQueue에 RequestObject를 넘겨준다.
+                queue.add(activityRequest);
 
             }
         });
