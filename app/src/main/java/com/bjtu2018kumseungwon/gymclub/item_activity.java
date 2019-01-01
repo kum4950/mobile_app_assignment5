@@ -1,10 +1,9 @@
 package com.bjtu2018kumseungwon.gymclub;
 
-
 public class item_activity {
-    String class_Name;
-    int nbViews;
-    String videoURL;
+    private String class_Name;
+    private int nbViews;
+    private String videoURL;
 
     public item_activity() {
 
@@ -17,6 +16,9 @@ public class item_activity {
         this.nbViews= nbViews;
 
     }
+
+
+    //get set
 
     public String getVideoURL() { return videoURL;  }
 

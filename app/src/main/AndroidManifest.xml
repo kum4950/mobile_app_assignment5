@@ -17,10 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value ="AIzaSyBFtZuJ3JVUalK8UL_DlutgbmxsSsSdSZg"/>
+            android:value="AIzaSyBFtZuJ3JVUalK8UL_DlutgbmxsSsSdSZg" />
 
         <activity
             android:name=".Activity_Intro"
@@ -70,7 +69,11 @@
             android:name=".Activity_Video"
             android:theme="@style/ThemeVideo" />
         <activity android:name=".Activity_Contact" />
-        <activity android:name=".Activity_Email"></activity>
+        <activity android:name=".Activity_Email" />
+        <activity android:name=".SqlActivity" />
+        <activity android:name=".UpdateTaskActivity" />
+        <activity android:name=".AddTaskActivity" />
+        <activity android:name=".TaskingActivity"></activity>
     </application>
 
 </manifest>

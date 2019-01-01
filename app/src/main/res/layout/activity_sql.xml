@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_Looking"
+    android:padding="8dp"
+    tools:context=".SqlActivity"
     android:orientation="vertical">
 
+
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_list"
+        android:id="@+id/recyclerview_tasks"
         android:layout_width="match_parent"
-        android:layout_height="544dp">
+        android:layout_height="wrap_content" >
 
     </android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/information"
-        android:layout_width="wrap_content"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:srcCompat="@drawable/circle" />
-
+        app:srcCompat="@drawable/btn_follow_style" />
 
 </LinearLayout>

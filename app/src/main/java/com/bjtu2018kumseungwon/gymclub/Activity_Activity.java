@@ -80,7 +80,6 @@ public class Activity_Activity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) { // ui를 만드는데 사용된다고함.
             try {
-                System.out.println("여기는?");
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
                 int count = 0;
@@ -91,7 +90,6 @@ public class Activity_Activity extends AppCompatActivity {
                     views = object.getString("views");
                     System.out.println(video_name);
                     System.out.println(views);
-
                     videoList.add(new VideoURL(video_name, Integer.parseInt(views)));
                     count++;
                     System.out.println(count);
@@ -101,8 +99,6 @@ public class Activity_Activity extends AppCompatActivity {
                 item_list = new ArrayList<>();
                 System.out.println(videoList.size());
                 int size = videoList.size();
-
-                System.out.println("2");
                 System.out.println(size);
                 for (int a = 0; a < size; a++) {
                     item_list.add(
@@ -118,7 +114,6 @@ public class Activity_Activity extends AppCompatActivity {
 
 
             } catch (Exception e) {
-                System.out.println("여기닷");
                 e.printStackTrace();
             }
         }

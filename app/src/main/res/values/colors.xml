@@ -50,5 +50,6 @@
     <color name="followersBg">#65DCE5</color>
     <color name="followingBg">#49BEFF</color>
     <color name="grey">#E5E5E5</color>
-
+    <color name="colorLight">#cff5bc</color>
+    <color name="colorRed">#e70004</color>
 </resources>

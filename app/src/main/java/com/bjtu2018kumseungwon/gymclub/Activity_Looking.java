@@ -1,12 +1,16 @@
 package com.bjtu2018kumseungwon.gymclub;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,6 +36,14 @@ Adapter adapter;
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         new Activity_Looking.BackgroundTask().execute();
+        FloatingActionButton information = findViewById(R.id.information);
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Activity_Looking.this,SqlActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -99,7 +111,6 @@ Adapter adapter;
 
 
             } catch (Exception e) {
-                System.out.println("여기닷");
                 e.printStackTrace();
             }
         }
