@@ -103,7 +103,7 @@ public class Activity_Main extends AppCompatActivity
         layout_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity_Main.this, Activity_Chat.class);
+                Intent intent = new Intent(Activity_Main.this, Activity_Map.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
@@ -233,7 +233,7 @@ public class Activity_Main extends AppCompatActivity
             intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         }else if (id == R.id.chat) {
-            Intent intent = new Intent(Activity_Main.this, Activity_Chat.class);
+            Intent intent = new Intent(Activity_Main.this, Activity_Map.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         }

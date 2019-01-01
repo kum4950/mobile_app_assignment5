@@ -17,6 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value ="AIzaSyBFtZuJ3JVUalK8UL_DlutgbmxsSsSdSZg"/>
+
         <activity
             android:name=".Activity_Intro"
             android:label="@string/app_name">
@@ -45,7 +50,7 @@
             android:name=".Activity_News"
             android:theme="@style/ThemeNews" />
         <activity
-            android:name=".Activity_Chat"
+            android:name=".Activity_Map"
             android:theme="@style/ThemeChat" />
         <activity
             android:name=".Activity_Login"

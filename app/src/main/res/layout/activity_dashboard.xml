@@ -203,7 +203,7 @@
                     android:adjustViewBounds="true"
                     android:padding="8dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/dashboard_chat"
+                    android:src="@drawable/dashboard_map"
                     android:tint="@color/white" />
 
                 <TextView
@@ -212,7 +212,7 @@
                     android:layout_below="@+id/imgView5"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:text="Chatting"
+                    android:text="Location"
                     android:textSize="14sp" />
             </RelativeLayout>
         </RelativeLayout>
