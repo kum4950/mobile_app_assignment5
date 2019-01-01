@@ -2,50 +2,43 @@ package com.bjtu2018kumseungwon.gymclub;
 
 
 public class item {
-    int backgroud;
-    String profileName;
-    int profilePhoto;
-    int nbFollowers;
+    String trainer_name;
+    String email_address;
+    String phone_number;
+
 
     public item() {
     }
 
-    public item(int backgroud, String profileName, int profilePhoto, int nbFollowers) {
-        this.backgroud = backgroud;
-        this.profileName = profileName;
-        this.profilePhoto = profilePhoto;
-        this.nbFollowers = nbFollowers;
+    public item( String trainer_name, String email_address, String phone_number) {
+        this.trainer_name = trainer_name;
+        this.email_address = email_address;
+        this.phone_number = phone_number;
+
     }
 
-    public int getBackgroud() {
-        return backgroud;
+    public String getTrainer_name() {
+        return trainer_name;
     }
 
-    public String getProfileName() {
-        return profileName;
+    public void setTrainer_name(String trainer_name) {
+        this.trainer_name = trainer_name;
     }
 
-    public int getProfilePhoto() {
-        return profilePhoto;
+    public String getEmail_address() {
+        return email_address;
     }
 
-    public int getNbFollowers() {
-        return nbFollowers;
+    public void setEmail_address(String email_address) {
+        this.email_address = email_address;
     }
 
-    public void setBackgroud(int backgroud) {
-        this.backgroud = backgroud;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setProfileName(String profileName) {
-        this.profileName = profileName;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
-    public void setProfilePhoto(int profilePhoto) {
-        this.profilePhoto = profilePhoto;
-    }
-
-    public void setNbFollowers(int nbFollowers) {
-        this.nbFollowers = nbFollowers;
-    }
 }

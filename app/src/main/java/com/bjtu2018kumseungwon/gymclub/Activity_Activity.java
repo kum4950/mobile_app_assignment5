@@ -108,10 +108,10 @@ public class Activity_Activity extends AppCompatActivity {
                     item_list.add(
                             new item_activity(
                                     videoList.get(a).getClass_Name(),
-                                    R.drawable.trainer1,
                                     videoList.get(a).getViews(),
                                     videoList.get(a).getVideoURL()));
                 }
+                //item_list.get(0).profilePhoto
                 adapter = new Adapter_activity(Activity_Activity.this, item_list);
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Activity_Activity.this));
