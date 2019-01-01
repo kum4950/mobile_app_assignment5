@@ -9,18 +9,18 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 @Dao
-public interface TaskDao {
+public interface itemDao {
 
-    @Query("SELECT * FROM tasks")
-    List<Tasks> getAll();
+    @Query("SELECT * FROM item")
+    List<item> getAll();
 
     @Insert
-    void insert(Tasks tasks);
-
+    void insert(item item);
+/*
     @Delete
-    void delete(Tasks tasks);
+    void delete(item item);
 
     @Update
-    void update(Tasks tasks);
-
+    void update(item item);
+*/
 }

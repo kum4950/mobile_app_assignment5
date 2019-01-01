@@ -2,7 +2,6 @@ package com.bjtu2018kumseungwon.gymclub;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +13,11 @@ import java.util.List;
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHolder> {
 
     private Context mCtx;
-    private List<Tasks> tasksList;
+    private List<item> itemList;
 
-    public TasksAdapter(Context mCtx, List<Tasks> tasksList) {
+    public TasksAdapter(Context mCtx, List<item> itemList) {
         this.mCtx = mCtx;
-        this.tasksList = tasksList;
+        this.itemList = itemList;
     }
 
     @Override
@@ -29,19 +28,19 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
 
     @Override
     public void onBindViewHolder(TasksViewHolder holder, int position) {
-        Tasks t = tasksList.get(position);
-        holder.textViewTask.setText(t.getTask());
-        holder.textViewDesc.setText(t.getDesc());
-        holder.textViewFinishBy.setText(t.getFinishBy());
+        item item = itemList.get(position);
+        holder.textViewTask.setText(item.getTrainer_name());
+        holder.textViewDesc.setText(item.getEmail_address());
+        holder.textViewFinishBy.setText(item.getPhone_number());
 
     }
 
     @Override
     public int getItemCount() {
-        return tasksList.size();
+        return itemList.size();
     }
 
-    class TasksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class TasksViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewTask, textViewDesc, textViewFinishBy;
 
@@ -52,18 +51,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
             textViewDesc = itemView.findViewById(R.id.textViewDesc);
             textViewFinishBy = itemView.findViewById(R.id.textViewFinishBy);
 
-
-            itemView.setOnClickListener(this);
         }
 
-        @Override
-        public void onClick(View view) {
-            Tasks tasks = tasksList.get(getAdapterPosition());
-
-            Intent intent = new Intent(mCtx, UpdateTaskActivity.class);
-            intent.putExtra("tasks", tasks);
-
-            mCtx.startActivity(intent);
-        }
     }
 }

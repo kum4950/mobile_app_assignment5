@@ -1,24 +1,25 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/frame"
-    tools:context=".Activity_News">
+    tools:context=".Activity_Looking"
+    android:orientation="vertical">
 
-    <ImageView
-        android:scaleType="centerCrop"
-        android:id="@+id/imageView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/news1"
-        android:visibility="visible"/>
-    <ImageView
-        android:scaleType="centerCrop"
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/news2"
-        android:visibility="invisible"/>
+        android:layout_height="544dp">
 
-</FrameLayout>
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/circle" />
+
+
+</LinearLayout>

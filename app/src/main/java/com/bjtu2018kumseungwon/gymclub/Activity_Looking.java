@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -47,7 +48,7 @@ Adapter adapter;
 
     }
 
-    class BackgroundTask extends AsyncTask<Void, Void, String> {
+    class BackgroundTask extends AsyncTask<Void, Void, List<item>> {
         String target;
 
         @Override
@@ -56,7 +57,8 @@ Adapter adapter;
         } //실행 순서 1
 
         @Override
-        protected String doInBackground(Void... voids) { // 실행 순서 2
+        protected List<item> doInBackground(Void... voids) { // 실행 순서 2
+
             try {
                 URL url = new URL(target);//URL 객체 생성
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -71,7 +73,37 @@ Adapter adapter;
                 inputStream.close();
                 httpURLConnection.disconnect();
                 System.out.println(stringBuilder.toString().trim());
-                return stringBuilder.toString().trim();
+                String result= stringBuilder.toString().trim();
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    JSONArray jsonArray = jsonObject.getJSONArray("response");
+                    int count = 0;
+                    String trainer_name, email_address, phone_number;
+                    while (count < jsonArray.length()) {
+                        JSONObject object = jsonArray.getJSONObject(count);
+                        trainer_name = object.getString("trainer_name");
+                        email_address = object.getString("email_address");
+                        phone_number = object.getString("phone_number");
+                        System.out.println(trainer_name);
+                        System.out.println(email_address);
+                        System.out.println(phone_number);
+                        item item = new item();
+                        item.setTrainer_name(trainer_name);
+                        item.setEmail_address(email_address);
+                        item.setPhone_number(phone_number);
+                        item_list.add(item);
+                        //adding to database
+                        DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
+                                .itemDao()
+                                .insert(item);
+                        count++;
+                        System.out.println(count);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -84,35 +116,15 @@ Adapter adapter;
         }
 
         @Override
-        protected void onPostExecute(String result) { // ui를 만드는데 사용된다고함.
-            try {
-                JSONObject jsonObject = new JSONObject(result);
-                JSONArray jsonArray = jsonObject.getJSONArray("response");
-                int count = 0;
-                String trainer_name, email_address, phone_number;
-                while (count < jsonArray.length()) {
-                    JSONObject object = jsonArray.getJSONObject(count);
-                    trainer_name = object.getString("trainer_name");
-                    email_address = object.getString("email_address");
-                    phone_number = object.getString("phone_number");
-                    System.out.println(trainer_name);
-                    System.out.println(email_address);
-                    System.out.println(phone_number);
+        protected void onPostExecute(List<item> item) { // ui를 만드는데 사용된다고함.
 
-                    item_list.add(new item(trainer_name,email_address,phone_number));
-                    count++;
-                    System.out.println(count);
-                }
                 //set up recyclerview with the adapter
                 recyclerView = findViewById(R.id.rv_list);
                 adapter = new Adapter(Activity_Looking.this, item_list);
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Activity_Looking.this));
 
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
+
     }
 }

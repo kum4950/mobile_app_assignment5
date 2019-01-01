@@ -25,39 +25,28 @@ public class SqlActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview_tasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SqlActivity.this, TaskingActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         getTasks();
 
     }
 
 
     private void getTasks() {
-        class GetTasks extends AsyncTask<Void, Void, List<Tasks>> {
+        class GetTasks extends AsyncTask<Void, Void, List<item>> {
 
             @Override
-            protected List<Tasks> doInBackground(Void... voids) {
-                List<Tasks> tasksList = DatabaseClient
+            protected List<item> doInBackground(Void... voids) {
+                List<item> item_list = DatabaseClient
                         .getInstance(getApplicationContext())
                         .getAppDatabase()
-                        .taskDao()
+                        .itemDao()
                         .getAll();
-                return tasksList;
+                return item_list;
             }
 
             @Override
-            protected void onPostExecute(List<Tasks> tasks) {
-                super.onPostExecute(tasks);
-                TasksAdapter adapter = new TasksAdapter(SqlActivity.this, tasks);
+            protected void onPostExecute(List<item> item) {
+                super.onPostExecute(item);
+                TasksAdapter adapter = new TasksAdapter(SqlActivity.this,item);
                 recyclerView.setAdapter(adapter);
             }
         }

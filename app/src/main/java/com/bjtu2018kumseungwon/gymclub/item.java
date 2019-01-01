@@ -1,20 +1,28 @@
 package com.bjtu2018kumseungwon.gymclub;
 
 
-public class item {
-    String trainer_name;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+import java.io.Serializable;
+
+@Entity // 이거 꼭 해야함
+public class item implements Serializable {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    @ColumnInfo(name = "trainer_name")
+    private String trainer_name;
+
+    @ColumnInfo(name = "email_address")
     String email_address;
+
+    @ColumnInfo(name = "phone_number")
     String phone_number;
 
 
     public item() {
-    }
-
-    public item( String trainer_name, String email_address, String phone_number) {
-        this.trainer_name = trainer_name;
-        this.email_address = email_address;
-        this.phone_number = phone_number;
-
     }
 
     public String getTrainer_name() {
@@ -39,6 +47,14 @@ public class item {
 
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }
