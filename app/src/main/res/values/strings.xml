@@ -92,4 +92,6 @@
     <string name="chat1">chat1</string>
     <string name="chat2">chat2</string>
     <string name="pw_validation"><![CDATA[([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])]]></string>
+    // 페이스북 앱 키
+    <string name="facebook_app_key">297124771009479</string>
 </resources>

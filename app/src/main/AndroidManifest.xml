@@ -23,6 +23,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBFtZuJ3JVUalK8UL_DlutgbmxsSsSdSZg" />
+        <!-- 페이스북 메타데이터 -->
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_key" />
 
         <activity
             android:name=".Activity_Intro"

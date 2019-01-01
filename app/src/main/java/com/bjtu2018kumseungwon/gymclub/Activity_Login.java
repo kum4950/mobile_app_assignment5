@@ -5,22 +5,37 @@ import android.content.Intent;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 
 
 public class Activity_Login extends AppCompatActivity {
+    private LoginButton btn_facebook_login;
+    private LoginCallback mLoginCallback;
+    private CallbackManager mCallbackManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +46,53 @@ public class Activity_Login extends AppCompatActivity {
         final EditText passwordText = findViewById(R.id.passwordText);
         final Button loginButton = findViewById(R.id.loginButton);
         final TextView registerButton = findViewById(R.id.registerButton);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent registerIntent = new Intent(Activity_Login.this, Activity_Register.class);
-                Activity_Login.this.startActivity(registerIntent);
-            }
-        });
 
+        mCallbackManager = CallbackManager.Factory.create();
+
+        LoginButton fbloginButton = findViewById(R.id.btn_facebook_login);
+        fbloginButton.setReadPermissions(Arrays.asList("public_profile","email"));
+        fbloginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                Log.v("result", object.toString());
+                                try {
+                                    String id=object.getString("id");
+                                    String name=object.getString("name");
+                                    //do something with the data here
+                                    // 로그인에 성공했으므로 Activity_Output로 넘어감
+                                    Intent intent = new Intent(Activity_Login.this, Activity_Output.class);
+                                    intent.putExtra("userName",name);
+                                    intent.putExtra("userPassword", id);
+                                    Activity_Login.this.startActivity(intent);
+                                } catch (JSONException e) {
+                                    e.printStackTrace(); //something's seriously wrong here
+                                }
+                            }
+                        });
+
+                        Bundle parameters = new Bundle();
+                        parameters.putString("fields", "id,name,email,gender,birthday");
+                        graphRequest.setParameters(parameters);
+                        graphRequest.executeAsync();
+
+                        }
+                    @Override
+                    public void onCancel() {
+
+                    }
+                    @Override
+                    public void onError(FacebookException error) {
+                        Log.e("LoginErr",error.toString());
+                    }
+                });
+
+
+        //
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,5 +149,16 @@ public class Activity_Login extends AppCompatActivity {
                 queue.add(loginRequest);
             }
         });
+    }
+
+    //facebook
+    @Override
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
+
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 }
